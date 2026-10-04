@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="180" viewBox="0 0 300 180"><path d="M25 140C-12 92 35 38 76 65C77-10 197-12 196 65C254 30 307 79 277 140Z" fill="#fffef7"/><path d="M38 149H267" stroke="#00629d" stroke-width="3" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 300 180">
+  <defs><path id="shape" d="M30 141C7 136 5 111 21 96C29 88 40 88 50 91C42 70 54 50 77 49C88 49 98 55 103 62C103 36 120 16 147 17C171 18 190 36 190 62C202 47 227 48 240 61C251 72 253 86 249 97C272 93 292 105 290 123C289 139 274 147 254 146L43 146Z"/><pattern id="fiber" width="41" height="29" patternUnits="userSpaceOnUse"><path d="M3 7l4-1M26 18h3" stroke="#00629d" stroke-width=".7" opacity=".09"/></pattern></defs>
+  <use href="#shape" fill="#79c4e4" transform="translate(-3 9)"/>
+  <use href="#shape" fill="#fffdf5"/>
+  <use href="#shape" fill="url(#fiber)"/>
+  <path d="M53 98C66 101 69 112 65 122M106 66C110 48 124 35 143 34M194 68C207 61 219 64 224 75" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M29 137C50 143 79 140 103 141L252 139" fill="none" stroke="#d0e9ee" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><g stroke="#f34e52" stroke-width="7" stroke-linecap="round"><path d="M100 8V28M100 172V192M8 100H28M172 100H192M35 35L49 49M151 151L165 165M35 165L49 151M151 49L165 35"/></g><circle cx="100" cy="100" r="55" fill="#ffde59"/><path d="M82 108Q100 125 118 108" fill="none" stroke="#00629d" stroke-width="4" stroke-linecap="round"/><circle cx="82" cy="89" r="4" fill="#00629d"/><circle cx="118" cy="89" r="4" fill="#00629d"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 200 200">
+  <defs><path id="ray" d="M94 25L92 8L101 4L108 9L105 25Z"/><pattern id="grain" width="21" height="17" patternUnits="userSpaceOnUse"><path d="M3 4h2M15 12h1" stroke="#fff" stroke-width=".8" opacity=".34"/></pattern></defs>
+  <g fill="#f34e52"><use href="#ray"/><use href="#ray" transform="rotate(30 100 100)"/><use href="#ray" transform="rotate(60 100 100)"/><use href="#ray" transform="rotate(90 100 100)"/><use href="#ray" transform="rotate(120 100 100)"/><use href="#ray" transform="rotate(150 100 100)"/><use href="#ray" transform="rotate(180 100 100)"/><use href="#ray" transform="rotate(210 100 100)"/><use href="#ray" transform="rotate(240 100 100)"/><use href="#ray" transform="rotate(270 100 100)"/><use href="#ray" transform="rotate(300 100 100)"/><use href="#ray" transform="rotate(330 100 100)"/></g>
+  <path d="M98 39C132 37 164 61 164 101C165 135 137 164 102 163C63 161 38 137 38 104C36 67 64 42 98 39Z" fill="#e9a93f" transform="translate(3 4)"/>
+  <path d="M98 39C132 37 164 61 164 101C165 135 137 164 102 163C63 161 38 137 38 104C36 67 64 42 98 39Z" fill="#ffde59"/>
+  <path d="M98 39C132 37 164 61 164 101C165 135 137 164 102 163C63 161 38 137 38 104C36 67 64 42 98 39Z" fill="url(#grain)"/>
+  <path d="M64 75C70 61 84 54 101 54" fill="none" stroke="#fff2a2" stroke-width="5" stroke-linecap="round"/>
+  <path d="M73 94q5-7 11 0M115 94q5-7 11 0M85 115q15 16 30-1" fill="none" stroke="#00629d" stroke-width="3.5" stroke-linecap="round"/>
+  <ellipse cx="69" cy="107" rx="7" ry="3.5" fill="#f34e52" opacity=".7"/><ellipse cx="132" cy="107" rx="7" ry="3.5" fill="#f34e52" opacity=".7"/>
+</svg>
