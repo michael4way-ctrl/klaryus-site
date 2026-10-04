@@ -1,0 +1,30 @@
+{
+  "results-1440-v3.webp": {
+    "origin": "landing/public/landing-assets/workspace/results-1440-v3.webp",
+    "description": "Existing Klaryus landing demonstration; synthetic data"
+  },
+  "share-1440-v3.webp": {
+    "origin": "landing/public/landing-assets/workspace/share-1440-v3.webp",
+    "description": "Existing Klaryus landing demonstration; synthetic data"
+  },
+  "klaryus-workflow.mp4": {
+    "origin": "landing/public/landing-assets/film/klaryus-workflow.mp4",
+    "description": "Existing Klaryus landing demonstration; synthetic data"
+  },
+  "poster.png": {
+    "origin": "landing/public/landing-assets/film/poster.png",
+    "description": "Existing Klaryus landing demonstration; synthetic data"
+  },
+  "klaryus-workflow-mobile.mp4": {
+    "origin": "landing/public/landing-assets/film/klaryus-workflow-mobile.mp4",
+    "description": "Existing Klaryus landing demonstration; synthetic data"
+  },
+  "student-card-1440-v3.webp": {
+    "origin": "landing/public/landing-assets/workspace/student-card-1440-v3.webp",
+    "description": "Existing Klaryus landing demonstration; synthetic data"
+  },
+  "select-1440-v3.webp": {
+    "origin": "landing/public/landing-assets/workspace/select-1440-v3.webp",
+    "description": "Existing Klaryus landing demonstration; synthetic data"
+  }
+}
