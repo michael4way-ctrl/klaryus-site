@@ -8,15 +8,15 @@
  <g filter="url(#paper-shadow)" stroke="#174567" stroke-linecap="round" stroke-linejoin="round">
   <path d="M96 285L83 314H108L119 290M215 287L226 314H251L234 277" fill="#00629d" stroke-width="3"/>
   <path d="M102 55L122 78M227 55L208 78" stroke="#00629d" stroke-width="10"/>
-  <path d="M48 60Q46 13 91 13Q133 16 137 44L61 77Z" fill="#ffde59" stroke-width="3"/>
-  <path d="M192 44Q199 10 244 14Q281 21 284 59L269 77Z" fill="#ffde59" stroke-width="3"/>
-  <path d="M54 60L132 44M198 45L277 61" stroke="#fffaf0" stroke-width="4"/>
+  <path d="M48 60Q46 13 91 13Q133 16 137 44L61 77Z" fill="#e4dff4" stroke-width="3"/>
+  <path d="M192 44Q199 10 244 14Q281 21 284 59L269 77Z" fill="#e4dff4" stroke-width="3"/>
+  <path d="M54 60L132 44M198 45L277 61" stroke="#faf8f6" stroke-width="4"/>
   <path d="M154 24H179V37H154Z" fill="#f34e52" stroke-width="2"/>
   <path d="M167 37V55" stroke="#174567" stroke-width="4"/>
   <circle cx="173" cy="182" r="124" fill="#003f6b" stroke-width="3"/>
   <circle cx="164" cy="174" r="124" fill="#00629d" stroke-width="3"/>
   <circle cx="164" cy="174" r="107" fill="#aee0f9" stroke-width="2.5"/>
-  <circle cx="164" cy="174" r="100" fill="#fffaf0" stroke-width="2"/>
+  <circle cx="164" cy="174" r="100" fill="#faf8f6" stroke-width="2"/>
   <path d="M109 70Q163 53 214 73" fill="none" stroke="#84ceef" stroke-width="4"/>
   <path d="M164 86V96M208 100L203 109M240 132L231 137M252 174H242M240 218L231 213M208 249L203 240M164 262V252M120 249L125 240M88 218L97 213M76 174H86M88 130L97 135M120 99L125 108" fill="none" stroke="#00629d" stroke-width="2.5"/>
   <text x="164" y="118" text-anchor="middle" font-size="25" fill="#00629d" stroke="none">12</text>
@@ -25,11 +25,11 @@
   <text x="105" y="182" text-anchor="middle" font-size="25" fill="#00629d" stroke="none">9</text>
   <path d="M164 176L174 130" stroke="#00629d" stroke-width="6"/>
   <path d="M164 176L229 174" stroke="#f34e52" stroke-width="5"/>
-  <circle cx="164" cy="176" r="8" fill="#ffde59" stroke-width="2"/>
+  <circle cx="164" cy="176" r="8" fill="#e4dff4" stroke-width="2"/>
   <path d="M147 215H182" stroke="#aee0f9" stroke-width="2"/>
  </g>
  <g transform="rotate(-5 165 328)">
-  <path d="M117 312H215V341H117Z" fill="#ffde59" stroke="#174567" stroke-width="2"/>
+  <path d="M117 312H215V341H117Z" fill="#e4dff4" stroke="#174567" stroke-width="2"/>
   <text x="166" y="335" text-anchor="middle" font-size="22" fill="#00629d">00:15</text>
  </g>
  <path d="M32 37L19 24M27 58L11 53M297 31L309 18M302 56L319 49" stroke="#f34e52" stroke-width="3" stroke-linecap="round"/>

@@ -2,5 +2,5 @@
 <ellipse cx="86" cy="139" rx="63" ry="6" fill="#00629d" opacity=".1"/>
 <path d="M79 137Q67 64 33 42Q64 36 85 109Q87 38 114 19Q124 56 92 125Q121 70 153 84Q143 120 104 137Z" fill="#7ac7ee"/>
 <path d="M82 130Q67 76 39 48M93 127Q116 92 147 87M87 124Q91 72 113 29" fill="none" stroke="#00629d" stroke-width="3" stroke-linecap="round"/>
-<path d="M121 53C132 36 150 53 138 64C151 76 131 88 121 74C107 86 94 67 110 61C98 48 113 39 121 53Z" fill="#f34e52"/><circle cx="122" cy="64" r="7" fill="#ffde59"/>
+<path d="M121 53C132 36 150 53 138 64C151 76 131 88 121 74C107 86 94 67 110 61C98 48 113 39 121 53Z" fill="#f34e52"/><circle cx="122" cy="64" r="7" fill="#e4dff4"/>
 </svg>

@@ -5,14 +5,14 @@
 
  </defs>
 <g filter="url(#paper-shadow)">
-  <path d="M17 14L270 9L278 140L24 145Z" fill="#fffaf0" stroke="#174567" stroke-width="2"/>
+  <path d="M17 14L270 9L278 140L24 145Z" fill="#faf8f6" stroke="#174567" stroke-width="2"/>
   <path d="M17 14L24 145L29 148L22 19L273 14L270 9Z" fill="#aee0f9" stroke="#174567" stroke-width="1"/>
   <path d="M40 37L250 33M41 60L251 56M42 83L252 79M44 107L253 103M45 130L254 126" stroke="#b5e2ff" stroke-width="1.2"/>
   <path d="M44 18L49 137" stroke="#ffb6b9" stroke-width="1.5"/>
-  <path d="M88 10L123 8L121 22L88 23Z" fill="#ffde59" opacity=".86"/>
+  <path d="M88 10L123 8L121 22L88 23Z" fill="#e4dff4" opacity=".86"/>
   <text x="60" y="43" fill="#00629d" font-size="15" transform="rotate(-1 60 43)">Найдём решение</text>
   <text x="58" y="83" fill="#00629d" font-size="26" transform="rotate(-1 58 83)">x² + 5x = 6</text>
-  <path d="M201 91L223 47L250 89Z" fill="#ffde59" fill-opacity=".5" stroke="#00629d" stroke-width="2"/>
+  <path d="M201 91L223 47L250 89Z" fill="#e4dff4" fill-opacity=".5" stroke="#00629d" stroke-width="2"/>
   <path d="M222 48L223 90" stroke="#f34e52" stroke-width="1.5" stroke-dasharray="3 3"/>
   <path d="M223 82H231V90" fill="none" stroke="#00629d" stroke-width="1.4"/>
   <text x="61" y="116" fill="#f34e52" font-size="20">x = 1; −6</text>

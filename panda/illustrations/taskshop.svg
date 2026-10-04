@@ -8,37 +8,37 @@
  <g filter="url(#paper-shadow)" stroke="#174567" stroke-linejoin="round">
   <path d="M78 181L520 181L552 208V500L518 524H78Z" fill="#ffe8d6" stroke-width="3"/>
   <path d="M520 181L552 208V500L520 521Z" fill="#ffc9b8" stroke-width="2.5"/>
-  <rect x="78" y="187" width="441" height="326" rx="6" fill="#fffaf0" stroke-width="3"/>
+  <rect x="78" y="187" width="441" height="326" rx="6" fill="#faf8f6" stroke-width="3"/>
   <path d="M65 166L103 66L500 66L535 166Z" fill="#00629d" stroke-width="3"/>
   <path d="M65 166L535 166L548 177H74Z" fill="#003f6b" stroke-width="2.5"/>
   <path d="M83 157L514 157M97 119L501 119" fill="none" stroke="#3496c4" stroke-width="2"/>
-  <path d="M151 87L454 87L454 149L151 149Z" fill="#fffaf0" stroke-width="2.5"/>
-  <path d="M151 149L157 155H460L454 149Z" fill="#ffde59" stroke-width="1.5"/>
+  <path d="M151 87L454 87L454 149L151 149Z" fill="#faf8f6" stroke-width="2.5"/>
+  <path d="M151 149L157 155H460L454 149Z" fill="#e4dff4" stroke-width="1.5"/>
   <text x="302" y="128" text-anchor="middle" font-size="36" fill="#00629d" stroke="none">Банк заданий</text>
-  <path d="M73 177H531L545 221H58Z" fill="#fffaf0" stroke-width="3"/>
+  <path d="M73 177H531L545 221H58Z" fill="#faf8f6" stroke-width="3"/>
   <path d="M84 177H128L121 221H69ZM174 177H218L215 221H168ZM264 177H308L310 221H260ZM354 177H398L406 221H353ZM444 177H488L501 221H448Z" fill="#f34e52" stroke="none"/>
-  <path d="M58 221H545V235Q527 256 509 235Q488 256 470 235Q450 256 431 235Q412 256 392 235Q372 256 354 235Q335 256 315 235Q295 256 277 235Q257 256 239 235Q219 256 201 235Q180 256 162 235Q142 256 123 235Q103 256 85 235Q69 254 58 235Z" fill="#fffaf0" stroke-width="2.5"/>
+  <path d="M58 221H545V235Q527 256 509 235Q488 256 470 235Q450 256 431 235Q412 256 392 235Q372 256 354 235Q335 256 315 235Q295 256 277 235Q257 256 239 235Q219 256 201 235Q180 256 162 235Q142 256 123 235Q103 256 85 235Q69 254 58 235Z" fill="#faf8f6" stroke-width="2.5"/>
   <path d="M67 235Q78 250 89 237M133 235Q144 250 154 237M209 235Q220 250 231 237M287 235Q298 250 307 237M366 235Q377 250 387 237M442 235Q453 250 464 237M517 235Q528 248 537 235" fill="none" stroke="#f34e52" stroke-width="9"/>
   <rect x="110" y="286" width="233" height="155" rx="3" fill="#aee0f9" stroke-width="3"/>
   <path d="M226 287V439" fill="none" stroke="#00629d" stroke-width="5"/>
   <path d="M112 324H343M112 413H343" fill="none" stroke="#00629d" stroke-width="3"/>
   <g stroke-width="1.5">
-   <path d="M132 341H153V411H132Z" fill="#f34e52"/><path d="M157 347H179V411H157Z" fill="#ffde59"/><path d="M183 337H202V411H183Z" fill="#00629d"/>
-   <path d="M253 343L272 338L286 407L268 411Z" fill="#fffaf0"/><path d="M287 355H309V411H287Z" fill="#f34e52"/>
+   <path d="M132 341H153V411H132Z" fill="#f34e52"/><path d="M157 347H179V411H157Z" fill="#e4dff4"/><path d="M183 337H202V411H183Z" fill="#00629d"/>
+   <path d="M253 343L272 338L286 407L268 411Z" fill="#faf8f6"/><path d="M287 355H309V411H287Z" fill="#f34e52"/>
   </g>
   <text x="135" y="317" font-size="20" fill="#00629d" stroke="none">x²</text><text x="278" y="317" font-size="22" fill="#00629d" stroke="none">π</text>
   <path d="M105 441H350V454H105Z" fill="#00629d" stroke-width="2"/>
   <path d="M376 509V325Q376 277 427 277Q478 277 478 325V509Z" fill="#00629d" stroke-width="3"/>
-  <path d="M393 493V327Q393 294 427 294Q461 294 461 327V493Z" fill="#ffde59" stroke-width="2"/>
-  <path d="M407 325H447V400H407Z" fill="#fffaf0" stroke-width="2"/>
+  <path d="M393 493V327Q393 294 427 294Q461 294 461 327V493Z" fill="#e4dff4" stroke-width="2"/>
+  <path d="M407 325H447V400H407Z" fill="#faf8f6" stroke-width="2"/>
   <path d="M415 345H439M415 360H439M415 375H433" fill="none" stroke="#aee0f9" stroke-width="3"/>
   <circle cx="450" cy="426" r="5" fill="#f34e52" stroke-width="1.5"/>
   <path d="M363 509H489V521H363Z" fill="#b9dcea" stroke-width="2"/>
   <path d="M89 465H220M90 476H181" fill="none" stroke="#ffcab8" stroke-width="3"/>
  </g>
  <g transform="translate(28 385) rotate(-7)">
-  <path d="M0 113L7 0H69L78 113Z" fill="#fffaf0" stroke="#174567" stroke-width="2.5"/>
-  <path d="M7 0L18-12H78L69 0M69 0L78-12L84 99L78 113" fill="#ffde59" stroke="#174567" stroke-width="2"/>
+  <path d="M0 113L7 0H69L78 113Z" fill="#faf8f6" stroke="#174567" stroke-width="2.5"/>
+  <path d="M7 0L18-12H78L69 0M69 0L78-12L84 99L78 113" fill="#e4dff4" stroke="#174567" stroke-width="2"/>
   <text x="38" y="36" text-anchor="middle" font-size="22" fill="#00629d">ЕГЭ</text><text x="38" y="68" text-anchor="middle" font-size="22" fill="#f34e52">ОГЭ</text>
   <path d="M22 88H54M26 96H49" stroke="#aee0f9" stroke-width="2"/>
  </g>

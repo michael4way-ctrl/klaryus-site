@@ -6,7 +6,7 @@
  </defs>
 <ellipse cx="157" cy="509" rx="111" ry="12" fill="#00629d" opacity=".12"/>
  <g filter="url(#paper-shadow)">
-  <rect x="40" y="22" width="230" height="478" rx="35" fill="#fffaf0" stroke="#174567" stroke-width="3"/>
+  <rect x="40" y="22" width="230" height="478" rx="35" fill="#faf8f6" stroke="#174567" stroke-width="3"/>
   <rect x="31" y="14" width="230" height="478" rx="35" fill="#00629d" stroke="#174567" stroke-width="3"/>
   <path d="M50 72V431Q50 450 69 450H224Q243 450 243 431V72Z" fill="#e3f4ff" stroke="#174567" stroke-width="2"/>
   <path d="M32 91H26V128H32M32 151H26V194H32M262 118H268V169H262" fill="#005382" stroke="#174567" stroke-width="2"/>
@@ -18,7 +18,7 @@
  </g>
  <g filter="url(#paper-shadow)">
   <g transform="rotate(-4 132 182)">
-   <path d="M23 145H237Q250 145 250 158V209Q250 221 237 221H56L37 235V221H23Q10 221 10 208V158Q10 145 23 145Z" fill="#fffaf0" stroke="#174567" stroke-width="2.5"/>
+   <path d="M23 145H237Q250 145 250 158V209Q250 221 237 221H56L37 235V221H23Q10 221 10 208V158Q10 145 23 145Z" fill="#faf8f6" stroke="#174567" stroke-width="2.5"/>
    <circle cx="38" cy="176" r="16" fill="#ffd5d5"/>
    <circle cx="38" cy="172" r="5" fill="#f34e52"/>
    <path d="M29 186Q29 178 38 178Q47 178 47 186" fill="#f34e52"/>
@@ -27,22 +27,22 @@
    <circle cx="230" cy="166" r="4" fill="#f34e52"/>
   </g>
   <g transform="rotate(4 176 276)">
-   <path d="M75 239H282Q295 239 295 252V308Q295 321 282 321H259L244 333V321H75Q62 321 62 308V252Q62 239 75 239Z" fill="#ffde59" stroke="#174567" stroke-width="2.5"/>
-   <circle cx="87" cy="270" r="15" fill="#fffaf0"/>
+   <path d="M75 239H282Q295 239 295 252V308Q295 321 282 321H259L244 333V321H75Q62 321 62 308V252Q62 239 75 239Z" fill="#e4dff4" stroke="#174567" stroke-width="2.5"/>
+   <circle cx="87" cy="270" r="15" fill="#faf8f6"/>
    <text x="80" y="277" font-size="20" fill="#00629d">С</text>
    <text x="112" y="268" font-size="17" fill="#00629d">Саша</text>
    <text x="112" y="299" font-size="22" fill="#174567">Где домашка?</text>
   </g>
   <g transform="rotate(-2 138 371)">
-   <path d="M28 342H231Q244 342 244 355V403Q244 416 231 416H61L46 429V416H28Q15 416 15 403V355Q15 342 28 342Z" fill="#fffaf0" stroke="#174567" stroke-width="2.5"/>
+   <path d="M28 342H231Q244 342 244 355V403Q244 416 231 416H61L46 429V416H28Q15 416 15 403V355Q15 342 28 342Z" fill="#faf8f6" stroke="#174567" stroke-width="2.5"/>
    <circle cx="43" cy="371" r="14" fill="#aee0f9"/>
    <text x="36" y="378" font-size="19" fill="#00629d">Л</text>
    <text x="68" y="368" font-size="17" fill="#00629d">Лёша</text>
    <text x="68" y="397" font-size="19" fill="#174567">Можно перенести?</text>
   </g>
-  <circle cx="263" cy="48" r="32" fill="#fffaf0" stroke="#174567" stroke-width="2.5"/>
+  <circle cx="263" cy="48" r="32" fill="#faf8f6" stroke="#174567" stroke-width="2.5"/>
   <circle cx="263" cy="45" r="27" fill="#f34e52"/>
-  <text x="263" y="54" text-anchor="middle" font-size="28" fill="#fffaf0">12</text>
+  <text x="263" y="54" text-anchor="middle" font-size="28" fill="#faf8f6">12</text>
  </g>
  <path d="M15 79L7 72M276 107L293 102M18 293L6 295" class="line"/>
 </svg>

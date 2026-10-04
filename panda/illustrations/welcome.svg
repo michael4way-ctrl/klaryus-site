@@ -2,9 +2,9 @@
  <path d="M30 28 L592 42 L582 326 L38 339Z" fill="#fffdf2" stroke="#142438" stroke-width="3"/>
  <path d="M34 86 L589 95 M34 146L587 155 M35 206L585 215 M37 266L583 275" stroke="#c2d5df" stroke-width="1"/>
  <path d="M75 32L78 335" stroke="#dca3a0" stroke-width="2"/>
- <rect x="258" y="15" width="123" height="34" fill="#dbcfac" opacity=".7" transform="rotate(2 320 30)"/>
+ <rect x="258" y="15" width="123" height="34" fill="#ddd4e7" opacity=".7" transform="rotate(2 320 30)"/>
  <text x="112" y="110" fill="#142438" font-size="43" >Дневник репетитора</text>
  <text x="110" y="177" fill="#142438" font-size="36" >Сегодня точно</text><text x="114" y="221" fill="#00629d" font-size="43" >всё успею!</text>
  <text x="118" y="294" fill="#142438" font-size="23" >глава 1. обычный вторник</text>
- <path transform="translate(510 202) scale(1.4)" d="M0 -18 L5 -6 L18 -4 L8 5 L10 19 L-1 12 L-14 18 L-11 4 L-20 -5 L-7 -7 Z" fill="#ffde59" stroke="#142438" stroke-width="2"/> <path d="M481 254 Q510 266 544 238" fill="none" stroke="#00629d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+ <path transform="translate(510 202) scale(1.4)" d="M0 -18 L5 -6 L18 -4 L8 5 L10 19 L-1 12 L-14 18 L-11 4 L-20 -5 L-7 -7 Z" fill="#e4dff4" stroke="#142438" stroke-width="2"/> <path d="M481 254 Q510 266 544 238" fill="none" stroke="#00629d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </g></svg>

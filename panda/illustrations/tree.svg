@@ -10,8 +10,8 @@
   <path d="M73 161C88 144 111 145 124 161C144 144 172 148 179 169C205 156 229 169 224 192C220 211 201 224 180 216C161 229 143 220 135 206C111 227 79 213 73 191C57 189 54 174 73 161Z" fill="#dc3944"/>
   <use href="#crown" fill="url(#fiber)"/>
   <g fill="none" stroke="#ffcf9f" stroke-width="2.5" stroke-linecap="round"><path d="M52 131q12-16 29-9M55 130l4-11M195 105q16-13 30-7M208 101l-1-9M113 62q14-6 27 4M129 63l2-7M163 180q13-8 26-1M177 177l1-8"/></g>
-  <g fill="#ffde59"><path d="M78 102c-6-9 1-16 10-13 2 11-3 15-10 13Z"/><path d="M196 143c-6-8 0-15 9-12 1 10-2 14-9 12Z"/><path d="M117 194c-6-8 1-14 8-12 2 10-1 14-8 12Z"/></g>
-  <path d="M91 354q16-8 34-3q19-6 38 0l22 11H81Z" fill="#ffde59"/>
-  <path d="M80 362H184" stroke="#d9ad42" stroke-width="3" stroke-linecap="round"/>
+  <g fill="#e4dff4"><path d="M78 102c-6-9 1-16 10-13 2 11-3 15-10 13Z"/><path d="M196 143c-6-8 0-15 9-12 1 10-2 14-9 12Z"/><path d="M117 194c-6-8 1-14 8-12 2 10-1 14-8 12Z"/></g>
+  <path d="M91 354q16-8 34-3q19-6 38 0l22 11H81Z" fill="#e4dff4"/>
+  <path d="M80 362H184" stroke="#aea0c6" stroke-width="3" stroke-linecap="round"/>
   <path d="M194 312c-7-9 2-17 11-14 3 12-3 16-11 14Z" fill="#f34e52" transform="rotate(24 196 308)"/>
 </svg>

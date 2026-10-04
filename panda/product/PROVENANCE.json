@@ -26,5 +26,14 @@
   "select-1440-v3.webp": {
     "origin": "landing/public/landing-assets/workspace/select-1440-v3.webp",
     "description": "Existing Klaryus landing demonstration; synthetic data"
+  },
+  "dota-hook-story-v4.webp": {
+    "origin": "Built-in image_gen, 2026-10-04",
+    "description": "Original generated illustration for a prepared contextual math example, not a live LLM recording",
+    "prompt": "dota-hook-story-v4.webp.json"
+  },
+  "interactive-student-roster": {
+    "origin": "src/ProductJourney.jsx",
+    "description": "Conceptual landing demonstration with fictional students, not a captured production screen"
   }
 }

@@ -3,13 +3,13 @@
 <path d="M106 234L553 236L577 280L121 286Z" fill="#00629d"/><path d="M121 286L577 280L577 292L121 298Z" fill="#004f82"/>
 <path d="M136 251L549 252L562 269L148 274Z" fill="#e4f2fc"/><path d="M151 260L551 260M153 266L555 265" stroke="#8abfdf" stroke-width="2"/>
 <path d="M131 223L464 155L531 224L197 288Z" fill="#f34e52"/><path d="M464 155L531 224L533 235L465 168Z" fill="#b72f3b"/><path d="M157 229L465 170" stroke="#ffb5aa" stroke-width="4"/>
-<path d="M282 246L316 239L340 270L315 271L305 289Z" fill="#ffde59"/>
-<path d="M181 223L212 217M195 236L293 217" stroke="#fffef7" stroke-width="3" stroke-linecap="round"/>
-<path d="M578 173H674L665 260Q624 279 588 259Z" fill="#fffef7" stroke="#00629d" stroke-width="3"/>
+<path d="M282 246L316 239L340 270L315 271L305 289Z" fill="#e4dff4"/>
+<path d="M181 223L212 217M195 236L293 217" stroke="#faf8f6" stroke-width="3" stroke-linecap="round"/>
+<path d="M578 173H674L665 260Q624 279 588 259Z" fill="#faf8f6" stroke="#00629d" stroke-width="3"/>
 <ellipse cx="625" cy="172" rx="48" ry="11" fill="#bee4fb"/><ellipse cx="625" cy="173" rx="39" ry="6" fill="#6b93ae"/>
-<path d="M674 187C723 180 723 240 669 238" fill="none" stroke="#00629d" stroke-width="12"/><path d="M674 187C715 183 715 233 670 233" fill="none" stroke="#fffef7" stroke-width="6"/>
+<path d="M674 187C723 180 723 240 669 238" fill="none" stroke="#00629d" stroke-width="12"/><path d="M674 187C715 183 715 233 670 233" fill="none" stroke="#faf8f6" stroke-width="6"/>
 <path d="M604 146Q588 126 606 109M628 140Q645 121 626 100M650 146Q642 134 653 118" fill="none" stroke="#84bedf" stroke-width="4" stroke-linecap="round"/>
-<path d="M482 91L534 75L555 106L503 118Z" fill="#ffde59"/><path d="M513 93L522 101L538 82" fill="none" stroke="#00629d" stroke-width="4" stroke-linecap="round"/>
+<path d="M482 91L534 75L555 106L503 118Z" fill="#e4dff4"/><path d="M513 93L522 101L538 82" fill="none" stroke="#00629d" stroke-width="4" stroke-linecap="round"/>
 <text x="124" y="107" font-size="44" fill="#00629d">На сегодня всё.</text>
 <path d="M117 119Q230 140 398 118" fill="none" stroke="#f34e52" stroke-width="4" stroke-linecap="round"/>
 </svg>
