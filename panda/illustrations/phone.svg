@@ -12,7 +12,7 @@
   <path d="M32 91H26V128H32M32 151H26V194H32M262 118H268V169H262" fill="#005382" stroke="#174567" stroke-width="2"/>
   <rect x="111" y="36" width="70" height="9" rx="4.5" fill="#003f6b"/>
   <circle cx="198" cy="41" r="4" fill="#aee0f9"/>
-  <text x="71" y="113" font-size="26" fill="#00629d">Сообщения</text>
+  <text x="71" y="113" font-size="31" fill="#00629d">Сообщения</text>
   <path d="M71 128H225" stroke="#a6d8f1" stroke-width="2"/>
   <circle cx="147" cy="473" r="9" fill="#93d0f0" stroke="#174567" stroke-width="2"/>
  </g>
@@ -22,23 +22,23 @@
    <circle cx="38" cy="176" r="16" fill="#ffd5d5"/>
    <circle cx="38" cy="172" r="5" fill="#f34e52"/>
    <path d="M29 186Q29 178 38 178Q47 178 47 186" fill="#f34e52"/>
-   <text x="65" y="174" font-size="17" fill="#f34e52">Мама Маши</text>
-   <text x="65" y="201" font-size="22" fill="#174567">Как успехи?</text>
+
+   <text x="65" y="190" font-size="26" fill="#174567">Как успехи?</text>
    <circle cx="230" cy="166" r="4" fill="#f34e52"/>
   </g>
   <g transform="rotate(4 176 276)">
    <path d="M75 239H282Q295 239 295 252V308Q295 321 282 321H259L244 333V321H75Q62 321 62 308V252Q62 239 75 239Z" fill="#e4dff4" stroke="#174567" stroke-width="2.5"/>
-   <circle cx="87" cy="270" r="15" fill="#faf8f6"/>
-   <text x="80" y="277" font-size="20" fill="#00629d">С</text>
-   <text x="112" y="268" font-size="17" fill="#00629d">Саша</text>
-   <text x="112" y="299" font-size="22" fill="#174567">Где домашка?</text>
+   <circle cx="87" cy="270" r="15" fill="#faf8f6"/><circle cx="87" cy="266" r="5" fill="#00629d"/><path d="M78 281Q78 273 87 273Q96 273 96 281" fill="#00629d"/>
+
+
+   <text x="112" y="287" font-size="28" fill="#174567">Где ДЗ?</text>
   </g>
   <g transform="rotate(-2 138 371)">
    <path d="M28 342H231Q244 342 244 355V403Q244 416 231 416H61L46 429V416H28Q15 416 15 403V355Q15 342 28 342Z" fill="#faf8f6" stroke="#174567" stroke-width="2.5"/>
-   <circle cx="43" cy="371" r="14" fill="#aee0f9"/>
-   <text x="36" y="378" font-size="19" fill="#00629d">Л</text>
-   <text x="68" y="368" font-size="17" fill="#00629d">Лёша</text>
-   <text x="68" y="397" font-size="19" fill="#174567">Можно перенести?</text>
+   <circle cx="43" cy="371" r="14" fill="#aee0f9"/><circle cx="43" cy="367" r="4.5" fill="#00629d"/><path d="M35 381Q35 374 43 374Q51 374 51 381" fill="#00629d"/>
+
+
+   <text x="68" y="385" font-size="27" fill="#174567">Перенос?</text>
   </g>
   <circle cx="263" cy="48" r="32" fill="#faf8f6" stroke="#174567" stroke-width="2.5"/>
   <circle cx="263" cy="45" r="27" fill="#f34e52"/>

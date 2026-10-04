@@ -14,7 +14,7 @@
   <path d="M83 157L514 157M97 119L501 119" fill="none" stroke="#3496c4" stroke-width="2"/>
   <path d="M151 87L454 87L454 149L151 149Z" fill="#faf8f6" stroke-width="2.5"/>
   <path d="M151 149L157 155H460L454 149Z" fill="#e4dff4" stroke-width="1.5"/>
-  <text x="302" y="128" text-anchor="middle" font-size="36" fill="#00629d" stroke="none">Банк заданий</text>
+  <text x="302" y="128" text-anchor="middle" font-size="40" fill="#00629d" stroke="none">Банк заданий</text>
   <path d="M73 177H531L545 221H58Z" fill="#faf8f6" stroke-width="3"/>
   <path d="M84 177H128L121 221H69ZM174 177H218L215 221H168ZM264 177H308L310 221H260ZM354 177H398L406 221H353ZM444 177H488L501 221H448Z" fill="#f34e52" stroke="none"/>
   <path d="M58 221H545V235Q527 256 509 235Q488 256 470 235Q450 256 431 235Q412 256 392 235Q372 256 354 235Q335 256 315 235Q295 256 277 235Q257 256 239 235Q219 256 201 235Q180 256 162 235Q142 256 123 235Q103 256 85 235Q69 254 58 235Z" fill="#faf8f6" stroke-width="2.5"/>
@@ -39,8 +39,8 @@
  <g transform="translate(28 385) rotate(-7)">
   <path d="M0 113L7 0H69L78 113Z" fill="#faf8f6" stroke="#174567" stroke-width="2.5"/>
   <path d="M7 0L18-12H78L69 0M69 0L78-12L84 99L78 113" fill="#e4dff4" stroke="#174567" stroke-width="2"/>
-  <text x="38" y="36" text-anchor="middle" font-size="22" fill="#00629d">ЕГЭ</text><text x="38" y="68" text-anchor="middle" font-size="22" fill="#f34e52">ОГЭ</text>
-  <path d="M22 88H54M26 96H49" stroke="#aee0f9" stroke-width="2"/>
+
+  <circle cx="39" cy="65" r="14" fill="#e4dff4"/><path d="M31 65l6 6 11-13" fill="none" stroke="#00629d" stroke-width="3" stroke-linecap="round"/><path d="M22 29H56M22 41H48M22 88H54M26 96H49" stroke="#aee0f9" stroke-width="2"/>
  </g>
  <g transform="translate(558 455)">
   <path d="M-16 0H18L13 52H-11Z" fill="#f34e52" stroke="#174567" stroke-width="2"/>

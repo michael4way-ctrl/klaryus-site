@@ -1,1 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><defs><pattern id="paper" width="47" height="53" patternUnits="userSpaceOnUse"><path d="M7 11h2M30 42h1M41 19h2M18 35h1" stroke="#b9aec9" stroke-width="1" opacity=".18"/><path d="M15 22h2M36 6h1M5 46h2" stroke="#fff" stroke-width="1" opacity=".6"/></pattern></defs><rect width="512" height="512" fill="#eeeaf4"/><rect width="512" height="512" fill="url(#paper)"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <filter id="grass-grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".64" numOctaves="2" seed="23" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="#b8d0b8"/>
+  <rect width="512" height="512" filter="url(#grass-grain)" opacity=".045"/>
+  <g fill="none" stroke="#789e86" stroke-width="1.3" stroke-linecap="round" opacity=".38">
+    <path d="M31 40q-1-4-4-6m4 6q1-5 4-7M119 28q-2-4-4-5m4 5q0-5 2-8M206 58q-1-5-4-7m4 7q2-4 5-5M319 31q-1-4-3-6m3 6q2-3 5-4M456 47q-2-5-5-6m5 6q0-4 3-7"/>
+    <path d="M72 102q-1-5-4-7m4 7q3-4 5-5M172 121q-2-5-5-7m5 7q1-5 3-6M267 101q0-5-3-7m3 7q2-4 5-5M397 128q-2-4-4-5m4 5q1-5 4-7M479 111q-1-4-3-5m3 5q1-4 3-6"/>
+    <path d="M38 179q-1-5-4-6m4 6q2-4 5-5M138 197q0-4-3-6m3 6q2-5 5-6M227 177q-2-5-5-7m5 7q1-4 4-6M330 205q-2-4-4-6m4 6q2-5 5-7M441 181q0-5-3-8m3 8q2-4 5-5"/>
+    <path d="M83 267q-1-5-4-6m4 6q3-3 5-4M181 251q-1-5-3-7m3 7q2-4 5-5M283 285q-2-5-5-6m5 6q2-4 4-6M384 269q0-5-3-7m3 7q1-3 4-5M480 291q-1-4-4-6m4 6q2-4 5-5"/>
+    <path d="M30 338q0-5-3-7m3 7q2-4 5-6M135 354q-2-4-5-6m5 6q1-4 4-6M235 339q-1-5-4-7m4 7q3-4 5-5M338 363q0-5-3-7m3 7q2-4 5-6M430 336q-2-4-5-6m5 6q1-5 3-7"/>
+    <path d="M73 423q-1-5-4-7m4 7q2-4 5-5M177 431q-2-5-4-6m4 6q1-4 4-5M277 414q0-5-3-7m3 7q2-4 5-5M389 447q-2-5-5-6m5 6q1-5 3-7M481 423q-1-4-3-6m3 6q3-4 5-5"/>
+    <path d="M28 482q-1-4-4-6m4 6q2-4 4-5M132 491q-1-5-4-6m4 6q1-5 3-7M226 479q-2-5-5-7m5 7q2-4 5-5M342 484q0-5-3-7m3 7q2-4 4-5M444 490q-1-4-4-6m4 6q1-4 4-5"/>
+  </g>
+  <g fill="none" stroke="#eef5e8" stroke-width="1.4" stroke-linecap="round" opacity=".58">
+    <path d="M91 47q3-3 6-3M252 26q2-3 4-4M405 74q3-2 6-2M21 128q2-3 5-4M211 140q3-2 6-2M355 156q2-3 5-4M487 206q3-2 6-2M107 218q2-3 5-3M293 238q2-3 4-4M416 231q3-2 6-2M53 310q3-2 6-2M195 310q2-3 5-3M316 323q2-3 4-4M462 370q3-2 6-2M104 388q2-3 5-3M219 400q3-2 6-2M358 404q2-3 5-4M47 453q3-2 6-2M305 465q2-3 5-3M414 476q2-3 4-4"/>
+  </g>
+  <g fill="#fff9ef" opacity=".8">
+    <path d="M105 160c-4-2-4-5-1-6 2-1 3 1 3 3 2-3 5-2 5 0 0 2-2 3-4 3 3 2 2 4 0 5-2 0-3-2-3-5Z"/>
+    <path d="M367 99c-3-1-4-4-1-5 2 0 3 1 3 3 2-2 4-2 4 1 0 2-2 2-4 2 2 2 1 4-1 4-1-1-2-2-1-5Z"/>
+    <path d="M324 383c-3-2-4-4-1-5 2-1 3 1 3 3 2-3 4-2 4 0 0 2-2 3-4 2 2 2 1 4-1 4-1 0-2-2-1-4Z"/>
+    <path d="M458 476c-3-1-4-4-1-5 2 0 3 1 3 3 2-2 4-2 4 1 0 2-2 2-4 2 2 2 1 4-1 4-1-1-2-2-1-5Z"/>
+  </g>
+  <g fill="#de7775" opacity=".72">
+    <path d="M54 386c-3-2-4-4-1-5 2-1 3 1 3 3 2-2 5-1 4 1 0 2-2 2-4 2 2 2 1 4-1 4-1-1-2-2-1-5Z"/>
+    <path d="M244 215c-3-2-4-4-1-5 2-1 3 1 3 3 2-2 5-1 4 1 0 2-2 2-4 2 2 2 1 4-1 4-1-1-2-2-1-5Z"/>
+  </g>
+</svg>

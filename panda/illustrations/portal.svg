@@ -13,7 +13,7 @@
   <path d="M69 250L85 268L625 259L613 242Z" fill="#003f6b" stroke-width="2.5"/>
   <path d="M221 106L475 102M185 142L510 136M150 179L545 172" fill="none" stroke="#3496c4" stroke-width="2"/>
   <path d="M237 177H457L474 252H220Z" fill="#faf8f6" stroke-width="3"/>
-  <text x="347" y="229" text-anchor="middle" font-size="40" fill="#00629d" stroke="none">Клариус</text>
+  <text x="347" y="229" text-anchor="middle" font-size="47" fill="#00629d" stroke="none">Клариус</text>
   <path d="M319 45H375V120H319Z" fill="#faf8f6" stroke-width="2.5"/>
   <path d="M308 45L347 17L386 45Z" fill="#f34e52" stroke-width="2.5"/>
   <circle cx="347" cy="78" r="20" fill="#e4dff4" stroke-width="2"/>
