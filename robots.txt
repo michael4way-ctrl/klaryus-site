@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://michael4way-ctrl.github.io/klaryus-site/sitemap.xml
+
