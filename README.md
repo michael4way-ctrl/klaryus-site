@@ -11,3 +11,6 @@
 Предыдущая версия с пандой сохранена отдельно: https://michael4way-ctrl.github.io/klaryus-site/panda/
 
 Pages публикует корень ветки `main`; `.nojekyll` отключает обработку Jekyll. Вход и регистрация ведут на существующее приложение `app.klaryus.ru`.
+
+Вариант с котами и журнальными вырезками: https://michael4way-ctrl.github.io/klaryus-site/cats/
+Исходники: приватный `michael4way-ctrl/klaryus`, ветка `feat/cat-collage-landing-2026-10-06`, PR #7.
