@@ -12,6 +12,9 @@
     <meta name="robots" content="noindex,nofollow" />
     <link rel="icon" href="./favicon.svg" />
     <link rel="stylesheet" href="./studio.css" />
+    <link rel="stylesheet" href="./worlds.css" />
+    <link rel="stylesheet" href="./workspace.css" />
+    <link rel="stylesheet" href="./builder.css" />
   </head>
   <body>
     <a href="#content" class="skip">К содержанию</a>
@@ -20,67 +23,70 @@
         ><img src="./wordmark.webp" alt="" width="135" height="45"
       /></a>
       <nav aria-label="Главная навигация">
-        <a href="#examples" class="examples-link">Примеры кабинетов</a
-        ><a href="#start" class="btn small" data-entry>Мой кабинет</a>
+        <a
+          href="https://app.klaryus.ru/login"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="login-link"
+          >Войти</a
+        ><a href="#examples" class="examples-link">Примеры кабинетов</a
+        ><a
+          href="https://app.klaryus.ru/signup"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn small"
+          data-entry
+          >Создать кабинет</a
+        >
       </nav>
     </header>
     <main id="content" tabindex="-1">
       <div id="landing">
-        <section class="hero">
-          <div class="hero-copy">
-            <h1>Ваш кабинет.<br /><em>Ваши правила.</em></h1>
+        <section class="studio-intro">
+          <div class="intro-copy">
+            <h1>У каждого свой<br /><em>кабинет.</em></h1>
             <p>
-              Соберите место для занятий в своём стиле. Домашки, квизы и
-              материалы — под рукой. Для знакомства с учениками — ваша личная
-              страница.
+              Соберите страницу для знакомства с учениками и рабочий стол для
+              своих занятий. Вы решаете, как они выглядят и что будет под рукой.
             </p>
             <div class="actions">
-              <a class="btn primary" href="#start">Собрать кабинет</a
-              ><a class="text-link" href="#examples">Посмотреть примеры</a>
+              <a
+                class="btn primary"
+                href="https://app.klaryus.ru/signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-create
+                >Создать кабинет</a
+              ><a class="text-link" href="#setup">Попробовать конструктор</a>
             </div>
           </div>
-          <div class="hero-art">
+          <div class="feature-cover" id="feature-cover">
             <img
-              src="./hero.webp"
-              alt="Рабочий стол преподавателя с тетрадью, геометрией и карточкой квиза"
+              id="feature-image"
+              src="./media/atelier.webp"
+              alt=""
               fetchpriority="high"
             />
+            <div class="cover-caption">
+              <div>
+                <small id="feature-author">Анна Миронова</small>
+                <h2 id="feature-title">Математика в картинках</h2>
+              </div>
+              <a
+                id="feature-link"
+                href="#example/quiz"
+                aria-label="Открыть страницу Анны"
+                >↗</a
+              >
+            </div>
           </div>
         </section>
-        <section id="examples" class="examples">
-          <div class="section-heading">
-            <h2>Два преподавателя.<br /><em>Два подхода.</em></h2>
-            <p>
-              Загляните в демопрофили. В каждом можно попробовать фрагмент
-              занятия.
-            </p>
+        <section class="showcase" id="examples">
+          <div class="showcase-heading">
+            <h2>Как ведут занятия другие</h2>
+            <p>Три примера кабинета. В каждом можно попробовать задание.</p>
           </div>
-          <div class="pair">
-            <a href="#example/quiz" class="example violet"
-              ><div class="example-cover quiz-cover">
-                <span class="quiz-note"
-                  >Быстрый квиз <b>¾ = ?</b><i>0,75</i></span
-                >
-              </div>
-              <div class="example-info">
-                <small>Математика · 5–9 классы</small>
-                <h3>Анна Миронова</h3>
-                <p>Пять минут в конце урока на короткий квиз.</p>
-                <span class="text-link">Открыть профиль</span>
-              </div></a
-            >
-            <a href="#example/review" class="example mint"
-              ><div class="example-cover">
-                <img src="./geometry.webp" alt="" loading="lazy" />
-              </div>
-              <div class="example-info">
-                <small>Математика · ЕГЭ</small>
-                <h3>Илья Соколов</h3>
-                <p>Разбираем решение и находим, где потерялся балл.</p>
-                <span class="text-link">Открыть профиль</span>
-              </div></a
-            >
-          </div>
+          <div id="example-gallery" class="example-gallery"></div>
         </section>
       </div>
       <div id="workspace" hidden></div>
@@ -88,7 +94,7 @@
     <footer>
       <a class="brand" href="#home" aria-label="Клариус"
         ><img src="./wordmark.webp" alt="" width="135" height="45" /></a
-      ><span>Интерактивный прототип</span
+      ><span>Конструктор кабинета</span
       ><a href="https://app.klaryus.ru">Действующий Клариус</a>
     </footer>
     <script type="module" src="./studio.js"></script>

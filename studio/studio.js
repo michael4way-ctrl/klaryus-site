@@ -1,3 +1,11 @@
+import { examples, interpret, styleOptions } from "./guide.js";
+import { cleanLook, renderWorld, worldLooks } from "./worlds.js";
+import { handleWorkspace, renderWorkspace } from "./workspace.js";
+import {
+  demoDeskLabel,
+  handleDemoDesk,
+  renderDemoDesk,
+} from "./desk-examples.js";
 import { businessCard, squareAvatar } from "./business-card.js";
 const root = document.querySelector("#workspace");
 const landing = document.querySelector("#landing");
@@ -19,6 +27,10 @@ const blocks = {
   sample: "Попробовать задание",
   contact: "Связаться",
 };
+const authorSectionIds = ["custom-1", "custom-2", "custom-3"];
+const sectionTitleLimit = 70;
+const sectionBodyLimit = 420;
+const maxSnapshotLength = 45000;
 const starters = {
   quiz: {
     name: "Анна Миронова",
@@ -42,6 +54,18 @@ const starters = {
     answer: "-1",
   },
 };
+starters.reading = {
+  about:
+    "Читаем вслух, замечаем детали и сверяем свои догадки с текстом. На занятие можно принести вопрос или любимый фрагмент.",
+  theme: "warm",
+  title: "Образ в одной строке",
+  question:
+    "«Фонарь зевнул и погас». Как называется приём, при котором фонарь ведёт себя как человек?",
+  answer: "олицетворение",
+};
+for (const [id, item] of Object.entries(examples)) {
+  Object.assign(starters[id], { ...item, look: worldLooks[item.world] });
+}
 const initial = {
   created: false,
   name: "",
@@ -124,8 +148,9 @@ function nav() {
     [
       ["desk", "Мой кабинет"],
       ["editor", "Моя страница"],
-      ["tools", "Мой инструмент"],
+      ["tools", "Упражнения"],
       ["lesson", "Урок"],
+      ["configure", "Настроить по описанию"],
     ]
       .map(
         ([url, name]) =>
@@ -175,121 +200,95 @@ const button = (txt, id, kind = "") =>
   '">' +
   txt +
   "</button>";
+let setupSource = "atelier";
+let draftDescription = "";
+let fromRegistration = false;
+function options(name, all, selected) {
+  return (
+    '<select name="' +
+    name +
+    '">' +
+    Object.entries(all)
+      .map(
+        ([key, label]) =>
+          '<option value="' +
+          key +
+          '"' +
+          (selected === key ? " selected" : "") +
+          ">" +
+          label +
+          "</option>",
+      )
+      .join("") +
+    "</select>"
+  );
+}
+function setupPreview(config) {
+  const { look, deskLayout } = config;
+  return (
+    '<img src="./media/' +
+    look.world +
+    '.webp" alt=""><div><strong>' +
+    styleOptions.layout[look.layout] +
+    "</strong><span>" +
+    styleOptions.background[look.background] +
+    " · " +
+    styleOptions.font[look.font] +
+    "</span><span>Рабочая область — " +
+    styleOptions.deskLayout[deskLayout].toLowerCase() +
+    "</span></div>"
+  );
+}
 function start() {
+  const editing = state.created;
+  if (editing && !draftDescription) {
+    setupSource = cleanProfile(state).look.world;
+    draftDescription = state.description || "";
+  }
+  const config = interpret(draftDescription, setupSource);
   return layout(
-    '<h1>Соберите свой кабинет</h1><p class="lead">С чего обычно начинается или заканчивается ваш урок?</p><form class="panel stack" id="start-form">' +
-      field(
-        "Как вас представить?",
-        "name",
-        state.name,
-        'required autocomplete="given-name" placeholder="Имя преподавателя"',
+    '<div class="guide-window"><h1>Каким будет ваш кабинет?</h1>' +
+      (fromRegistration && !editing
+        ? '<p class="register-note">Регистрация открылась в Клариусе. После регистрации вернитесь в эту вкладку для настройки.</p>'
+        : "") +
+      '<form id="start-form"><label for="guide-prompt">Расскажите, как вы ведёте занятия</label>' +
+      '<textarea id="guide-prompt" name="description" rows="4" maxlength="900" required placeholder="Что преподаёте? С чего начинаете урок? Как выглядит место, в котором вам приятно работать?">' +
+      esc(draftDescription) +
+      "</textarea>" +
+      '<div class="prompt-ideas"><span>Взять за основу</span>' +
+      Object.entries(examples)
+        .map(
+          ([id, item]) =>
+            '<button type="button" data-prompt="' +
+            id +
+            '">' +
+            item.short +
+            "</button>",
+        )
+        .join("") +
+      "</div>" +
+      '<div class="guide-result" id="guide-result">' +
+      setupPreview(config) +
+      "</div>" +
+      '<details class="guide-refine"><summary>Уточнить название и рабочий стол</summary><label>Название вашей страницы<input name="siteTitle" maxlength="100" placeholder="Например, Физика на кухне"></label><label>Вид рабочего стола' +
+      options(
+        "deskChoice",
+        { auto: "Подобрать по описанию", ...styleOptions.deskLayout },
+        "auto",
       ) +
-      field(
-        "Что преподаёте?",
-        "subject",
-        state.subject,
-        'required placeholder="Например, математика ЕГЭ"',
-      ) +
-      '<label>Первый инструмент<select name="focus"><option value="quiz">Короткий квиз в конце урока</option><option value="review">Разбор ошибки с учеником</option><option value="own">Своё упражнение</option></select></label><button class="primary">Открыть кабинет</button><small>Демокабинет сохраняется в этом браузере. Для действующего аккаунта — <a href="https://app.klaryus.ru/login">вход в Клариус</a>.</small></form>',
+      "</label></details>" +
+      '<div class="guide-bottom"><button class="primary">' +
+      (editing ? "Применить оформление" : "Собрать мой кабинет") +
+      "</button>" +
+      (editing
+        ? '<a href="#desk">Вернуться в кабинет</a>'
+        : "<small>Черновик сохранится в этом браузере.</small>") +
+      "</div></form></div>",
     true,
   );
 }
-const dashboardBlocks = {
-  lesson: [
-    "Следующее занятие",
-    () => state.student || "Выберите, для кого готовите урок.",
-    "#lesson",
-    "Подготовить урок",
-  ],
-  tool: [
-    "Мой инструмент",
-    () => state.title,
-    "#tools",
-    "Редактировать и попробовать",
-  ],
-  profile: [
-    "Страница преподавателя",
-    () =>
-      state.published
-        ? "Сохранена версия страницы для учеников."
-        : "Соберите профиль и решите, чем поделиться.",
-    "#editor",
-    "Открыть редактор",
-  ],
-  app: [
-    "Ученики и домашки",
-    () =>
-      "Карточки учеников, выдача заданий и проверка решений — в действующем кабинете.",
-    "https://app.klaryus.ru",
-    "Перейти в Клариус",
-  ],
-};
-function dashboardOrder() {
-  const keys = Object.keys(dashboardBlocks);
-  return [
-    ...new Set([
-      ...(Array.isArray(state.dashboardOrder) ? state.dashboardOrder : []),
-      ...keys,
-    ]),
-  ].filter((k) => keys.includes(k));
-}
 function desk() {
-  const order = dashboardOrder(),
-    hidden = state.hiddenWidgets || [];
-  const panels = order
-    .filter((k) => !hidden.includes(k))
-    .map((k) => {
-      const [title, description, url, label] = dashboardBlocks[k];
-      return (
-        '<section class="panel"><h2>' +
-        title +
-        "</h2><p>" +
-        esc(description()) +
-        '</p><a class="' +
-        (k === "lesson" ? "btn primary" : "text-link") +
-        '" href="' +
-        url +
-        '">' +
-        label +
-        "</a></section>"
-      );
-    });
-  const chooser = order
-    .map(
-      (k, i) =>
-        '<div class="check-row"><label class="check"><input type="checkbox" value="' +
-        k +
-        '" data-widget ' +
-        (hidden.includes(k) ? "" : "checked") +
-        ">" +
-        dashboardBlocks[k][0] +
-        "</label>" +
-        (i > 0
-          ? '<button type="button" data-action="raise-' +
-            k +
-            '" aria-label="Поднять блок ' +
-            dashboardBlocks[k][0] +
-            '">Выше</button>'
-          : "") +
-        "</div>",
-    )
-    .join("");
-  return layout(
-    nav() +
-      "<h1>" +
-      (state.name.trim() ? esc(state.name) + ", ваш кабинет" : "Мой кабинет") +
-      '</h1><p class="lead">Подготовьте занятие, откройте материал вместе с учеником или соберите свою страницу.</p><details class="widget-settings"><summary>Настроить кабинет</summary>' +
-      chooser +
-      '</details><div class="grid2">' +
-      (panels.join("") ||
-        "<p>Добавьте нужные блоки в настройках кабинета.</p>") +
-      "</div>",
-  );
-}
-function refreshDashboardSettings() {
-  render();
-  const settings = document.querySelector(".widget-settings");
-  if (settings) settings.open = true;
+  return layout(nav() + renderWorkspace(state));
 }
 function isLegacyPlaceholder(input) {
   return (
@@ -307,12 +306,45 @@ function hasExercise(input) {
 function cleanProfile(input) {
   const text = (k, n = 140) =>
     typeof input?.[k] === "string" ? input[k].slice(0, n) : "";
+  // Keep unpublished text exclusively in the local draft. Both QR and public
+  // snapshot consumers receive only these explicitly visible author sections.
+  const sections = {};
+  for (const id of authorSectionIds) {
+    const section = input.sections?.[id];
+    if (
+      !input.visible?.includes(id) ||
+      typeof section?.title !== "string" ||
+      typeof section?.body !== "string"
+    )
+      continue;
+    const title = section.title.trim().slice(0, sectionTitleLimit);
+    const body = section.body.trim().slice(0, sectionBodyLimit);
+    if (title && body) sections[id] = { title, body };
+  }
   const list = (arr) =>
     Array.isArray(arr)
-      ? [...new Set(arr.filter((k) => Object.hasOwn(blocks, k)))]
+      ? [
+          ...new Set(
+            arr.filter(
+              (k) => Object.hasOwn(blocks, k) || Object.hasOwn(sections, k),
+            ),
+          ),
+        ]
       : Object.keys(blocks);
   return {
     name: text("name"),
+    headline: text("headline", 100),
+    look: cleanLook(
+      input.look,
+      input.theme === "green"
+        ? "observatory"
+        : input.theme === "warm"
+          ? "library"
+          : "atelier",
+    ),
+    portrait: ["anna", "ilya", "marina"].includes(input.portrait)
+      ? input.portrait
+      : "",
     avatar:
       typeof input.avatar === "string" &&
       input.avatar.length < 13000 &&
@@ -325,6 +357,7 @@ function cleanProfile(input) {
     contact: safeLink(text("contact", 500)),
     order: list(input.order),
     visible: list(input.visible),
+    sections,
     title: text("title"),
     question: hasExercise(input) ? text("question", 480) : "",
     answer: hasExercise(input) ? text("answer") : "",
@@ -388,17 +421,10 @@ function activity(q, index = 0) {
     '<button>Проверить ответ</button><p class="result" role="status" hidden></p></form></div>'
   );
 }
-function profile(input, mini = false) {
+function profile(input, mini = false, standalone = false) {
   if (mini)
     return '<studio-business-card aria-label="Предпросмотр визитки"></studio-business-card>';
-  const p = cleanProfile(input),
-    [, ink, wash] = themes[p.theme];
-  const initials = p.name
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((s) => s[0])
-    .join("");
+  const p = cleanProfile(input);
   const parts = {
     about: p.about
       ? '<section class="row-card"><h3>Как проходят занятия</h3><p>' +
@@ -416,32 +442,7 @@ function profile(input, mini = false) {
         '">Связаться с преподавателем</a></section>'
       : "",
   };
-  return (
-    '<article class="profile" style="--accent:' +
-    ink +
-    ";--wash:" +
-    wash +
-    '"><div class="profile-head"><span class="avatar">' +
-    (p.avatar
-      ? '<img src="' +
-        esc(p.avatar) +
-        '" width="58" height="58" style="border-radius:inherit" alt="">'
-      : esc(initials || "К")) +
-    "</span><h2>" +
-    esc(p.name || "Имя преподавателя") +
-    '</h2><p class="tag">' +
-    esc(p.subject) +
-    "</p></div>" +
-    (!mini
-      ? '<div class="profile-body">' +
-        p.order
-          .filter((k) => p.visible.includes(k))
-          .map((k) => parts[k])
-          .join("") +
-        "</div>"
-      : "") +
-    "</article>"
-  );
+  return renderWorld(p, { blocksHtml: parts, standalone });
 }
 let mini = false;
 let activeQuestion = null;
@@ -459,35 +460,70 @@ function publishedLink() {
   );
 }
 function editor() {
-  const opt = Object.entries(themes)
-    .map(
-      ([id, [label]]) =>
-        '<option value="' +
-        id +
-        '" ' +
-        (state.theme === id ? "selected" : "") +
-        ">" +
-        label +
-        "</option>",
-    )
-    .join("");
+  const look = cleanProfile(state).look;
+  const selectStyle = (key, label) =>
+    "<label>" + label + options(key, styleOptions[key], look[key]) + "</label>";
   const manage = state.order
-    .map(
-      (k, i) =>
+    .map((id, i) => {
+      const custom = authorSectionIds.includes(id);
+      if (!custom && !Object.hasOwn(blocks, id)) return "";
+      const section = custom && state.sections?.[id];
+      const checkLabel = custom ? "Показывать этот раздел" : blocks[id];
+      const checked = state.visible.includes(id) ? " checked" : "";
+      const controls =
         '<div class="check-row"><label class="check"><input type="checkbox" name="visible" value="' +
-        k +
-        '" ' +
-        (state.visible.includes(k) ? "checked" : "") +
+        id +
+        '"' +
+        checked +
         ">" +
-        blocks[k] +
+        checkLabel +
         "</label>" +
-        button("Выше", "up-" + k, i === 0 ? "hidden" : "") +
-        "</div>",
-    )
+        button("Выше", "up-" + id, i === 0 ? "hidden" : "") +
+        "</div>";
+      if (!custom) return controls;
+      const fields =
+        '<label>Заголовок раздела<input name="' +
+        id +
+        '-title" type="text" maxlength="' +
+        sectionTitleLimit +
+        '" value="' +
+        esc(section?.title || "") +
+        '" placeholder="Например, программа занятий"></label>' +
+        area(
+          "Текст раздела",
+          id + "-body",
+          section?.body || "",
+          sectionBodyLimit,
+        );
+      return (
+        '<div class="wx-author-editor">' +
+        fields +
+        controls +
+        button("Удалить раздел", "delete-" + id) +
+        "</div>"
+      );
+    })
     .join("");
+  const canAddSection = authorSectionIds.some(
+    (id) => !state.order.includes(id),
+  );
   return layout(
     nav() +
-      '<h1>Моя страница</h1><p class="lead">Настройте то, что увидят ученики и родители.</p><div class="grid2"><form id="profile-form" class="panel">' +
+      '<h1>Моя страница</h1><p class="lead">Соберите сайт, который отправите ученикам и родителям.</p><div class="editor-split"><form id="profile-form" class="panel editor-controls"><h2>Оформление</h2>' +
+      selectStyle("world", "Иллюстрация обложки") +
+      selectStyle("layout", "Композиция страницы") +
+      selectStyle("font", "Шрифт заголовков") +
+      selectStyle("background", "Фон страницы") +
+      '<label class="accent-control">Акцентный цвет<input type="color" name="accent" value="' +
+      esc(look.accent) +
+      '"></label>' +
+      "<h2>Содержание</h2>" +
+      field(
+        "Заголовок страницы",
+        "headline",
+        state.headline,
+        'placeholder="Например, Читаем между строк"',
+      ) +
       field("Имя", "name", state.name, "required") +
       field("Предмет и формат", "subject", state.subject, "required") +
       area("О занятиях", "about", state.about) +
@@ -499,13 +535,14 @@ function editor() {
       ) +
       '<label>Фотография<input type="file" name="avatarFile" accept="image/webp,image/png,image/jpeg"></label>' +
       (state.avatar ? button("Убрать фотографию", "remove-avatar") : "") +
-      '<label>Оформление<select name="theme">' +
-      opt +
-      "</select></label><fieldset><legend>Публичные блоки</legend>" +
+      "<fieldset><legend>Публичные блоки</legend>" +
       manage +
+      (canAddSection
+        ? button("Добавить свой раздел", "add-section")
+        : '<p class="hint">Добавлены все три своих раздела.</p>') +
       '</fieldset><div class="controls"><button class="primary">Создать ссылку</button>' +
       button("Скачать визитку", "png") +
-      '</div><small>Ссылка содержит снимок выбранных публичных полей. Скопировавший её увидит именно эту версию.</small></form><div><div class="controls">' +
+      '</div><small>Ссылка содержит снимок выбранных публичных полей. Скопировавший её увидит именно эту версию.</small></form><div class="editor-preview"><div class="controls">' +
       button("Страница", "full") +
       button("Визитка", "mini") +
       '</div><div id="preview">' +
@@ -518,7 +555,7 @@ function editor() {
 function toolsView() {
   return layout(
     nav() +
-      '<h1>Мой инструмент</h1><p class="lead">Создайте упражнение для повторения. Шаблон можно менять и использовать на разных уроках.</p><div class="grid2"><form id="tool-form" class="panel"><label>Начать с примера<select name="preset"><option value="">Своё упражнение</option><option value="quiz">Квиз по дробям</option><option value="review">Найти пропущенный корень</option></select></label>' +
+      '<h1>Мои упражнения</h1><p class="lead">Создайте упражнение для повторения. Шаблон можно менять и использовать на разных уроках.</p><div class="grid2"><form id="tool-form" class="panel"><label>Начать с примера<select name="preset"><option value="">Своё упражнение</option><option value="quiz">Квиз по дробям</option><option value="review">Найти пропущенный корень</option></select></label>' +
       field("Название", "title", state.title, "required") +
       area("Вопрос для ученика", "question", state.question) +
       field("Правильный ответ", "answer", state.answer, "required") +
@@ -582,7 +619,7 @@ function lesson() {
         state.materials ||
           "Здесь появится материал, который вы подготовите для занятия.",
       ) +
-      '</p></div><div class="controls">' +
+      '</p></div><details class="board-space"><summary>Место для совместной доски</summary><p>Для совместных записей пока можно открыть демонстрацию экрана в созвоне.</p></details><div class="controls">' +
       shareLessonExercise() +
       '</div><div id="lesson-activity"></div></section></div>',
   );
@@ -595,7 +632,7 @@ function encode(p) {
     .replace(/=+$/, "");
 }
 function decode(txt) {
-  if (txt.length > 45000) throw Error();
+  if (txt.length > maxSnapshotLength) throw Error();
   return cleanProfile(
     JSON.parse(
       new TextDecoder().decode(
@@ -613,8 +650,16 @@ function render() {
   landing.hidden = !home;
   root.hidden = home;
   const entry = document.querySelector("[data-entry]");
-  entry.href = state.created ? "#desk" : "#start";
+  entry.href = state.created ? "#desk" : "https://app.klaryus.ru/signup";
+  entry.textContent = state.created ? "Мой кабинет" : "Создать кабинет";
+  entry.target = state.created ? "_self" : "_blank";
   activeQuestion = state;
+  const create = landing.querySelector("[data-create]");
+  create.textContent = state.created
+    ? "Открыть мой кабинет"
+    : "Создать кабинет";
+  create.href = entry.href;
+  create.target = entry.target;
   if (home) {
     root.innerHTML = "";
     requestAnimationFrame(() =>
@@ -624,8 +669,12 @@ function render() {
     );
     return;
   }
-  if (page === "start") root.innerHTML = state.created ? desk() : start();
-  else if (page.startsWith("exercise/")) {
+  if (page === "configure" || page === "setup") root.innerHTML = start();
+  else if (page === "start") root.innerHTML = state.created ? desk() : start();
+  else if (page.startsWith("example-desk/")) {
+    const [, id, view] = page.split("/");
+    root.innerHTML = layout(renderDemoDesk(id, view), Boolean(view));
+  } else if (page.startsWith("exercise/")) {
     try {
       const quiz = decode(page.slice("exercise/".length));
       if (!quiz.title || !quiz.question || !quiz.answer) throw Error();
@@ -647,20 +696,24 @@ function render() {
       if (demo && !Object.hasOwn(starters, id)) throw Error();
       const p = demo ? { ...initial, ...starters[id], focus: id } : decode(id);
       activeQuestion = p;
-      root.innerHTML = layout(
-        '<a class="text-link" href="' +
-          (demo ? "#examples" : "#home") +
-          '">' +
-          (demo ? "К примерам" : "Клариус") +
-          '</a><p class="lead">' +
-          (demo ? "Пример страницы преподавателя" : "Страница преподавателя") +
-          "</p>" +
-          profile(p) +
-          (demo
-            ? '<div class="controls"><a class="btn primary" href="#start">Собрать свой кабинет</a></div>'
-            : ""),
-        true,
-      );
+      root.innerHTML =
+        '<div class="site-view"><div class="site-toolbar"><a href="' +
+        (demo ? "#examples" : "#home") +
+        '">' +
+        (demo ? "← Все кабинеты" : "← Клариус") +
+        "</a>" +
+        (demo
+          ? '<a href="#example-desk/' +
+            id +
+            '">' +
+            demoDeskLabel(id) +
+            '</a><a href="#setup" data-use="' +
+            id +
+            '">Взять оформление за основу</a>'
+          : "") +
+        "</div>" +
+        profile(p, false, true) +
+        "</div>";
     } catch {
       root.innerHTML = layout(
         '<h1>Ссылка не открылась</h1><a href="#home">На главную</a>',
@@ -682,13 +735,29 @@ function formData(form) {
 }
 function updateProfile(form) {
   const v = formData(form);
+  const sections = {};
+  for (const id of authorSectionIds) {
+    if (state.order.includes(id))
+      sections[id] = {
+        title: v[id + "-title"] || "",
+        body: v[id + "-body"] || "",
+      };
+  }
   Object.assign(state, {
     name: v.name,
     subject: v.subject,
     about: v.about,
     contact: v.contact,
-    theme: v.theme,
+    headline: v.headline,
+    look: cleanLook({
+      world: v.world,
+      layout: v.layout,
+      font: v.font,
+      background: v.background,
+      accent: v.accent,
+    }),
     visible: new FormData(form).getAll("visible"),
+    sections,
   });
   save();
 }
@@ -704,6 +773,13 @@ function updateTool(form) {
 }
 root.addEventListener("input", (e) => {
   const form = e.target.form;
+  if (form?.id === "start-form") {
+    draftDescription = form.elements.description.value;
+    const config = interpret(draftDescription, setupSource);
+    if (form.elements.deskChoice.value !== "auto")
+      config.deskLayout = form.elements.deskChoice.value;
+    document.querySelector("#guide-result").innerHTML = setupPreview(config);
+  }
   if (form?.id === "profile-form") {
     updateProfile(form);
     document.querySelector("#preview").innerHTML = profile(state, mini);
@@ -715,15 +791,6 @@ root.addEventListener("input", (e) => {
   }
 });
 root.addEventListener("change", async (e) => {
-  if (e.target.matches("[data-widget]")) {
-    const hidden = new Set(state.hiddenWidgets || []);
-    if (e.target.checked) hidden.delete(e.target.value);
-    else hidden.add(e.target.value);
-    state.hiddenWidgets = [...hidden];
-    save();
-    refreshDashboardSettings();
-    return;
-  }
   if (e.target.name === "avatarFile" && e.target.files[0]) {
     try {
       state.avatar = await squareAvatar(e.target.files[0]);
@@ -748,6 +815,10 @@ root.addEventListener("change", async (e) => {
 root.addEventListener("submit", (e) => {
   e.preventDefault();
   const form = e.target;
+  if (route().startsWith("example-desk/")) {
+    if (handleDemoDesk(form, route().split("/")[1])) redrawDesk(form, false);
+    return;
+  }
   const v = formData(form);
   if (form.classList.contains("attempt")) {
     const norm = (str) =>
@@ -775,24 +846,42 @@ root.addEventListener("submit", (e) => {
     }
     return;
   }
+  if (form.matches("[data-workspace]") && handleWorkspace(form, state)) {
+    redrawDesk(form);
+    return;
+  }
   if (form.id === "start-form") {
-    const p = starters[v.focus];
-    if (!v.name.trim() || !v.subject.trim()) {
-      message("Заполните имя и предмет.");
+    const description = v.description.trim();
+    if (!description) {
+      message("Опишите хотя бы одну деталь кабинета.");
       return;
     }
+    const config = interpret(description, setupSource);
+    const newCabinet = !state.created;
     Object.assign(state, {
       created: true,
-      name: v.name.trim(),
-      subject: v.subject.trim(),
-      focus: v.focus,
-      title: p?.title || "Моё упражнение",
-      question: p?.question || "",
-      answer: p?.answer || "",
-      about: p?.about || "",
+      description,
+      look: config.look,
+      deskLayout: Object.hasOwn(styleOptions.deskLayout, v.deskChoice)
+        ? v.deskChoice
+        : config.deskLayout,
+      name: config.name || state.name,
+      subject: config.subject || state.subject,
+      headline: v.siteTitle.trim() || config.headline || state.headline || "",
+      dashboardOrder: [
+        ...new Set([config.priority, ...(state.dashboardOrder || [])]),
+      ],
     });
+    if (newCabinet)
+      Object.assign(state, {
+        title: "Моё упражнение",
+        question: "",
+        answer: "",
+        focus: "own",
+      });
     save();
     go("desk");
+    return;
   }
   if (form.id === "tool-form") {
     const extraLines = (v.extraText || "")
@@ -844,11 +933,27 @@ root.addEventListener("submit", (e) => {
       return;
     }
     updateProfile(form);
+    for (const id of authorSectionIds) {
+      if (!state.visible.includes(id)) continue;
+      const section = state.sections[id];
+      if (!section?.title.trim() || !section.body.trim()) {
+        const incomplete = section?.title.trim() ? "body" : "title";
+        form.elements.namedItem(id + "-" + incomplete)?.focus();
+        message("Заполните заголовок и текст своего раздела или скройте его.");
+        return;
+      }
+    }
     const p = cleanProfile(state);
     if (!p.visible.includes("contact")) p.contact = "";
     if (!p.visible.includes("about")) p.about = "";
     if (!p.visible.includes("sample"))
       Object.assign(p, { question: "", answer: "", title: "", extra: [] });
+    if (encode(p).length > maxSnapshotLength) {
+      message(
+        "Ссылка получилась слишком длинной. Сократите один из текстов или уберите фотографию.",
+      );
+      return;
+    }
     state.published = p;
     save();
     document.querySelector("#share-result").innerHTML = publishedLink();
@@ -861,10 +966,7 @@ customElements.define(
   "studio-business-card",
   class extends HTMLElement {
     async connectedCallback() {
-      const canvas = await businessCard(
-        cleanProfile(state),
-        themes[state.theme],
-      );
+      const canvas = await businessCard(cleanProfile(state), cardPalette());
       if (this.isConnected) {
         canvas.style.cssText =
           "width:100%;height:auto;border-radius:16px;display:block";
@@ -873,8 +975,20 @@ customElements.define(
     }
   },
 );
+function cardPalette() {
+  const look = cleanProfile(state).look;
+  return [
+    "",
+    look.accent,
+    look.world === "library"
+      ? "#f3eee0"
+      : look.world === "observatory"
+        ? "#dfebea"
+        : "#fff0df",
+  ];
+}
 async function png() {
-  const canvas = await businessCard(cleanProfile(state), themes[state.theme]);
+  const canvas = await businessCard(cleanProfile(state), cardPalette());
   canvas.toBlob((blob) => {
     if (!blob) return;
     const href = URL.createObjectURL(blob);
@@ -886,21 +1000,59 @@ async function png() {
   }, "image/png");
 }
 root.addEventListener("click", async (e) => {
+  if (route().startsWith("example-desk/")) {
+    const control = e.target.closest(
+      "button[data-workspace],button[data-demo]",
+    );
+    if (control && handleDemoDesk(control, route().split("/")[1]))
+      redrawDesk(control, false);
+    return;
+  }
+  const widget = e.target.closest("button[data-workspace]");
+  if (widget && handleWorkspace(widget, state)) {
+    redrawDesk(widget);
+    return;
+  }
+  const promptId = e.target.closest("[data-prompt]")?.dataset.prompt;
+  if (Object.hasOwn(examples, promptId)) {
+    const item = examples[promptId];
+    setupSource = item.world;
+    draftDescription = item.prompt;
+    const prompt = document.querySelector("#guide-prompt");
+    prompt.value = draftDescription;
+    prompt.dispatchEvent(new Event("input", { bubbles: true }));
+    prompt.focus();
+    return;
+  }
   const action = e.target.closest("[data-action]")?.dataset.action;
   if (!action) return;
+  if (action === "add-section") {
+    const id = authorSectionIds.find((item) => !state.order.includes(item));
+    if (!id) return;
+    state.order = [...state.order, id];
+    state.visible = [...state.visible, id];
+    state.sections = { ...state.sections, [id]: { title: "", body: "" } };
+    save();
+    render();
+    document.querySelector('[name="' + id + '-title"]')?.focus();
+    return;
+  }
+  if (
+    action.startsWith("delete-") &&
+    authorSectionIds.includes(action.slice(7))
+  ) {
+    const id = action.slice(7);
+    state.order = state.order.filter((item) => item !== id);
+    state.visible = state.visible.filter((item) => item !== id);
+    delete state.sections[id];
+    save();
+    render();
+    document.querySelector('[data-action="add-section"]')?.focus();
+    return;
+  }
   if (action === "full" || action === "mini") {
     mini = action === "mini";
     document.querySelector("#preview").innerHTML = profile(state, mini);
-  }
-  if (action.startsWith("raise-")) {
-    const order = dashboardOrder(),
-      index = order.indexOf(action.slice(6));
-    if (index > 0) {
-      [order[index - 1], order[index]] = [order[index], order[index - 1]];
-      state.dashboardOrder = order;
-      save();
-      refreshDashboardSettings();
-    }
   }
   if (action.startsWith("up-")) {
     const i = state.order.indexOf(action.slice(3));
@@ -951,6 +1103,117 @@ root.addEventListener("click", async (e) => {
       input.select();
       message("Ссылка выделена для копирования.");
     }
+  }
+});
+function redrawDesk(control, persist = true) {
+  const opened = [...root.querySelectorAll("details")].map((item) => item.open);
+  const before = window.scrollY;
+  if (persist) save();
+  render();
+  root.querySelectorAll("details").forEach((item, index) => {
+    item.open = Boolean(opened[index]);
+  });
+  if (control.dataset.workspace === "close-settings") {
+    const settings = root.querySelector(".ws-settings");
+    settings.open = false;
+    settings.querySelector("summary").focus({ preventScroll: true });
+  } else {
+    const next = [
+      ...root.querySelectorAll("[data-workspace], [data-demo]"),
+    ].find(
+      (item) =>
+        item.dataset.workspace === control.dataset.workspace &&
+        item.dataset.demo === control.dataset.demo &&
+        item.dataset.id === control.dataset.id,
+    );
+    (next?.matches("form") ? next.querySelector("input,button") : next)?.focus({
+      preventScroll: true,
+    });
+  }
+  window.scrollTo({ top: before, behavior: "instant" });
+}
+
+const gallery = document.getElementById("example-gallery");
+function displayExample(id) {
+  const e = examples[id];
+  const feature = document.getElementById("feature-cover");
+  feature.dataset.world = e.world;
+  document.getElementById("feature-image").src = "./media/" + e.world + ".webp";
+  document.getElementById("feature-title").textContent = e.headline;
+  document.getElementById("feature-author").textContent =
+    e.name + " · " + e.subject;
+  document.getElementById("feature-link").href = "#example/" + id;
+  document
+    .getElementById("feature-link")
+    .setAttribute("aria-label", "Открыть страницу — " + e.headline);
+  document
+    .querySelectorAll("[data-feature]")
+    .forEach((btn) =>
+      btn.setAttribute("aria-pressed", String(btn.dataset.feature === id)),
+    );
+}
+gallery.innerHTML = Object.entries(examples)
+  .map(
+    ([id, e]) =>
+      '<a class="catalog-row" href="#example/' +
+      id +
+      '"><img src="./media/' +
+      e.portrait +
+      '.webp" alt="" loading="lazy"><div><strong>' +
+      e.name +
+      "</strong><small>" +
+      e.subject +
+      "</small></div><span>" +
+      e.description +
+      '</span><b>Открыть <span aria-hidden="true">↗</span></b></a>',
+  )
+  .join("");
+const tabs = document.createElement("div");
+tabs.className = "folder-tabs";
+tabs.setAttribute("aria-label", "Выбрать пример кабинета");
+tabs.innerHTML = Object.entries(examples)
+  .map(
+    ([id, e]) =>
+      '<button type="button" data-feature="' +
+      id +
+      '">' +
+      e.short +
+      "</button>",
+  )
+  .join("");
+document.getElementById("feature-cover").prepend(tabs);
+displayExample("quiz");
+document.addEventListener("click", (event) => {
+  const el = event.target.closest("a,button");
+  if (!el) return;
+  if (el.dataset.feature) displayExample(el.dataset.feature);
+  if (el.hasAttribute("data-use") && examples[el.dataset.use]) {
+    const e = examples[el.dataset.use];
+    if (state.created) {
+      event.preventDefault();
+      if (
+        !confirm(
+          "Применить оформление примера к вашей странице? Данные и занятия сохранятся.",
+        )
+      )
+        return;
+      state.look = { ...worldLooks[e.world] };
+      save();
+      go("editor");
+      return;
+    }
+    setupSource = e.world;
+    draftDescription = e.prompt;
+    fromRegistration = false;
+  }
+  if (el.matches("[data-create], [data-entry]")) {
+    if (state.created) {
+      event.preventDefault();
+      go("desk");
+      return;
+    }
+    fromRegistration = true;
+    setTimeout(() => go("setup"), 0);
   }
 });
 window.addEventListener("hashchange", render);

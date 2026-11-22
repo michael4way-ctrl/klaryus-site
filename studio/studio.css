@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: Notes;
-  src: url("../fonts/Pangolin-Regular.woff");
+  src: url("./fonts/Pangolin-Regular.woff");
 }
 * {
   box-sizing: border-box;
